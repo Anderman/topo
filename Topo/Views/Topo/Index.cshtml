@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Topo.Models.Kaarten>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(@item.Title, "Afname", new { id = item.KaartID }) 
+        </td>
+    </tr>
+}
+
+</table>

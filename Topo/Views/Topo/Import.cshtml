@@ -1,0 +1,33 @@
+﻿@model Topo.Models.Kaarten
+
+@{
+    ViewBag.Title = "Import";
+}
+
+<h2>Import</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <div class="control-label col-md-2">
+            URL:
+        </div>
+        <div class="col-md-10">
+            <input type="text" class="form-control" name="URL" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Categorie, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Categorie, new SelectList(Enum.GetValues(typeof(Topo.Models.Categorieen))))
+            @Html.ValidationMessageFor(model => model.Categorie, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Import" class="btn btn-default" />
+            <input type="button" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+}

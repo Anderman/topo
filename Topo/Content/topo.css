@@ -1,0 +1,10 @@
+﻿#ResultTable div.true {
+    background: url('/images/smiley-ok.gif') no-repeat right;
+}
+#ResultTable div.false {
+    background: url('/images/smiley-nok.gif') no-repeat right;
+}
+#EditableTable input{
+    border:0px;
+    padding:0px;
+}

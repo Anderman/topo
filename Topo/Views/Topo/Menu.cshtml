@@ -1,0 +1,35 @@
+﻿@model  IEnumerable<Topo.Models.Kaarten>
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nederland<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        @foreach (var Kaart in Model)
+        {
+            if (Kaart.Categorie == Topo.Models.Categorieen.Nederland)
+            {
+                <li>@Html.ActionLink(Kaart.Title, "Afname", "Topo", new { KaartID = Kaart.KaartID }, "")</li>
+            }
+        }
+    </ul>
+</li>
+<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Europa<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        @foreach (var Kaart in Model)
+        {
+            if (Kaart.Categorie == Topo.Models.Categorieen.Europa)
+            {
+                <li>@Html.ActionLink(Kaart.Title, "Afname", "Topo", new { KaartID = Kaart.KaartID }, "")</li>
+            }
+        }
+    </ul>
+</li>
+<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Wereld<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        @foreach (var Kaart in Model)
+        {
+            if (Kaart.Categorie == Topo.Models.Categorieen.Wereld)
+            {
+                <li>@Html.ActionLink(Kaart.Title, "Afname", "Topo", new { KaartID = Kaart.KaartID }, "")</li>
+            }
+        }
+    </ul>
+</li>

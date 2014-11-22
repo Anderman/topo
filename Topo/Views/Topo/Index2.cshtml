@@ -1,0 +1,235 @@
+﻿@{
+    ViewBag.Title = "Topografie Afrika";
+}
+<link href="~/Content/topo.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Scripts/Topo.js"></script>
+    <style>
+        .hover:hover {
+            background-color: lightgray;
+        }
+    </style>
+}
+<table width="100%">
+    <tr>
+        <td width="10%">
+            <map id="map" name="Afrika">
+                <area shape="rect" alt="C:1:Luanda" title="1" coords="260,353,277,367" href="" target="null" />
+                <area shape="rect" alt="A:2:Khartoem" title="2" coords="401,167,424,180" href="" target="null" />
+                <area shape="rect" alt="B:3:Alexandrië" title="3" coords="379,41,391,62" href="" target="null" />
+                <area shape="rect" alt="A:4:Nairobi" title="4" coords="439,294,463,306" href="" target="null" />
+                <area shape="rect" alt="A:5:Pretoria" title="5" coords="369,476,380,485" href="" target="null" />
+                <area shape="rect" alt="B:6:Ndjamena" title="7" coords="274,196,298,211" href="" target="null" />
+                <area shape="rect" alt="A:7:Abuja" title="7" coords="211,205,222,228" href="" target="null" />
+                <area shape="rect" alt="B:8:Lagos" title="8" coords="185,236,196,259" href="" target="null" />
+                <area shape="rect" alt="B:9:Casablanca" title="9" coords="107,23,133,39" href="" target="null" />
+                <area shape="rect" alt="B:10:Rabat" title="10" coords="134,18,163,32" href="" target="null" />
+                <area shape="rect" alt="C:11:Accar" title="11" coords="153,240,166,263" href="" target="null" />
+                <area shape="rect" alt="B:12:Tripoly" title="12" coords="263,40,292,55" href="" target="null" />
+                <area shape="rect" alt="C:13:Antananarivo" title="13" coords="511,420,525,446" href="" target="null" />
+                <area shape="rect" alt="B:14:Dar es Salaam" title="14" coords="454,337,486,351" href="" target="null" />
+                <area shape="rect" alt="A:15:Kinshasa" title="15" coords="279,324,300,334" href="" target="null" />
+                <area shape="rect" alt="B:16:Kaapstad" title="16" coords="295,536,309,550" href="" target="null" />
+                <area shape="rect" alt="B:17:Algiers" title="17" coords="195,5,211,33" href="" target="null" />
+                <area shape="rect" alt="B:18:Niamey" title="18" coords="176,180,204,193" href="" target="null" />
+                <area shape="rect" alt="A:19:Addis Abeba" title="19" coords="455,215,469,229" href="" target="null" />
+                <area shape="rect" alt="C:20:Yamoussoukro" title="19" coords="121,225,139,241" href="" target="null" />
+                <area shape="rect" alt="C:21:Ibadan" title="19" coords="194,221,206,241" href="" target="null" />
+                <area shape="rect" alt="A:22:Cairo" title="22" coords="393,61,408,71" href="" target="null" />
+                <area shape="rect" alt="C:23:Abidjan" title="23" coords="125,242,136,263" href="" target="null" />
+                <area shape="rect" alt="B:24:Johannesburg" title="24" coords="364,485,378,497" href="" target="null" />
+                <area shape="rect" alt="C:25:Dakar" title="25" coords="30,168,57,179" href="" target="null" />
+                <area shape="rect" alt="C:26:Tunis" title="26" coords="243,10,276,24" href="" target="null" />
+                <area shape="rect" alt="C:27:Mogadishu" title="27" coords="499,268,531,282" href="" target="null" />
+                <area shape="rect" alt="C:28:Windhoek" title="28" coords="287,444,302,465" href="" target="null" />
+                <area shape="rect" alt="C:29:Maputo" title="29" coords="397,483,422,494" href="" target="null" />
+                <area shape="rect" alt="C:30:Lusaka" title="30" coords="357,403,380,413" href="" target="null" />
+                <area shape="rect" alt="B:31:Nouakchott" title="31" coords="41,145,67,157" href="" target="null" />
+                <area shape="rect" alt="C:32:Kampala" title="32" coords="390,284,411,293" href="" target="null" />
+
+
+                <area shape="poly" alt="A:a:Atlantische Oceaan" title="a" coords="12,5,15,536,47,538,47,452,213,458,213,530,299,538,257,450,235,396,251,360,211,286,215,270,105,274,51,220,27,182,41,102,103,52,119,20,129,4" href="" target="null" />
+                <area shape="poly" alt="A:b:Middelandse Zee" title="b" coords="278,5,264,22,283,40,319,43,330,35,373,43,394,19" href="" target="null" />
+                <area shape="poly" alt="A:c:Nijl" title="c" coords="386,76,404,99,405,112,392,136,391,154,399,159,411,155,416,156,414,164,428,168,432,155,418,140,411,135,404,143,415,113,414,94,402,80,402,78" href="" target="null" />
+                <area shape="poly" alt="A:d:Indische Oceaan" title="d" coords="549,258,483,321,482,367,479,418,456,442,437,456,433,484,430,504,410,504,390,540,455,542,481,451,483,429,493,401,525,389,536,373,544,397,539,438,518,485,513,495,475,496,465,542,543,535" href="" target="null" />
+                <area shape="poly" alt="B:j:Niger (rivier)" title="j" coords="76,230,80,221,78,209,91,208,97,198,135,176,139,166,154,158,167,162,171,169,181,182,187,189,185,193,199,206,204,212,196,211,182,193,161,165,157,162,143,172,140,179,131,184,129,182,99,202,95,211,88,214,86,215,84,228,83,232" href="" target="null" />
+                <area shape="poly" alt="B:e:Golf van Aden" title="e" coords="548,180,550,201,505,213,502,200" href="" target="null" />
+                <area shape="poly" alt="B:f:Congo" title="f" coords="303,296,310,284,322,283,322,291,330,292,331,282,342,289,355,297,358,327,363,331,364,346,370,343,368,325,360,316,359,292,336,275,305,275,299,288,299,288" href="" target="" />
+                <area shape="rect" alt="B:g:Victoria meer" title="g" coords="409,293,423,309" href="" target="null" />
+                <area shape="rect" alt="B:h:Suezkanaal" title="h" coords="403,52,415,72" href="" target="" />
+                <area shape="poly" alt="B:i:Rode Zee" title="i" coords="431,85,422,91,463,164,485,162" href="" target="null" />
+                <area shape="poly" alt="C:k:Zambezi" title="k" coords="337,378,328,387,332,397,337,399,335,414,342,424,351,429,368,432,375,424,384,414,389,412,407,413,410,412,432,435,434,430,427,422,418,414,411,406,392,407,382,411,378,417,372,418,370,424,367,428,347,423,339,414,340,397,337,391,334,383,342,378,340,377" href="" target="" />
+                <area shape="poly" alt="C:l:Limpopo" title="" coords="406,482,393,461,374,466,373,468,364,475,364,478,360,477,360,471,371,462,379,459,400,460,402,464,411,463,411,471,404,472,410,480,410,480" href="" target="" />
+
+
+
+                <area shape="poly" alt="C:A:Mozanbique" title="A" coords="470,378,469,407,457,418,443,421,432,434,425,440,418,448,424,460,426,473,419,482,410,482,404,462,413,450,412,439,414,422,429,435,437,427,428,423,423,416,413,408,397,405,407,401,417,403,420,405,419,410,419,412,429,424,432,423,436,414,437,401,429,389,429,384,445,385,449,382,457,381" href="" target="" />
+                <area shape="rect" alt="A:B:Zuid-Afrika" title="B" coords="302,519,363,540" href="" target="" />
+                <area shape="poly" alt="A:C:Ethopie" title="C" coords="427,230,434,246,445,251,469,256,485,258,491,252,498,250,509,244,512,234,496,227,487,224,484,215,478,201,480,196,470,195,471,215,484,222,487,232,456,232,450,230,451,213,469,213,469,191,450,191,438,202,431,216,430,223" href="" target="" />
+                <area shape="poly" alt="B:D:Libie" title="D" coords="344,57,320,47,318,65,251,54,251,95,296,95,296,109,344,132" href="" target="null" />
+                <area shape="poly" alt="B:E:Mauretanie" title="E" coords="89,92,89,108,75,110,76,125,48,123,48,145,74,144,73,156,48,157,45,161,64,161,76,177,78,162,89,167,121,170,123,91,113,88" href="" target="" />
+                <area shape="rect" alt="A:F:Democratische Republiek Congo" title="F" coords="309,295,347,339" href="" target="" />
+                <area shape="poly" alt="C:G:Somalie" title="G" coords="501,284,483,301,482,265,506,256,533,234,535,227,519,227,504,223,494,215,497,209,501,214,543,207,546,229,538,247,526,264,518,266,518,255,501,258,498,273" href="" target="" />
+                <area shape="poly" alt="B:H:Marokko" title="H" coords="106,38,133,43,133,57,120,61,110,68,107,89,86,87,83,107,73,109,74,120,47,121,59,101,74,85,78,83,85,71,100,73,112,56,116,40,116,40" href="" target="" />
+                <area shape="rect" alt="A:I:Sudan" title="I" coords="355,138,396,221" href="" target="" />
+                <area shape="rect" alt="A:J:Egypte" title="J" coords="361,67,389,123" href="" target="" />
+                <area shape="poly" alt="B:K:Tanzania" title="K" coords="445,326,392,325,412,351,453,364" href="" target="null" />
+                <area shape="poly" alt="C:L:Ghana" title="L" coords="164,206,166,234,149,246,147,206" href="javascript:validateInput('X');" target="null" />
+                <area shape="poly" alt="B:M:Mali" title="M" coords="127,100,125,169,122,174,84,174,81,169,80,179,90,197,97,193,106,210,119,207,131,190,154,177,158,170,191,171,197,155,196,150,154,114,135,102" href="" target="" />
+                <area shape="poly" alt="C:N:Zambia" title="N" coords="347,383,342,393,332,394,330,416,340,423,355,425,367,427,370,416,353,417,352,399,382,402,386,410,391,410,392,401,408,396,415,368,408,362,397,358,384,362,386,379,380,381,390,386,391,395,383,395,377,387,356,382" href="" target="" />
+                <area shape="rect" alt="C:O:Tunesie" title="O" coords="241,22,259,50" href="" target="null" />
+                <area shape="poly" alt="B:P:Algerije" title="P" coords="179,36,223,35,234,57,241,63,237,92,246,115,203,143,119,83,126,68,153,70,159,56,179,55,178,38" href="" target="" />
+                <area shape="poly" alt="C:Q:Madagaskar" title="Q" coords="543,407,533,389,498,426,486,481,511,489" href="" target="null" />
+                <area shape="poly" alt="C:R:Senegal" title="R" coords="54,171,53,185,80,200,77,183,74,173" href="javascript:validateInput('P');" target="null" />
+                <area shape="poly" alt="C:S:Angola" title="S" coords="319,353,294,362,277,342,276,366,259,408,321,422" href="" target="null" />
+                <area shape="poly" alt="B:T:Tjaad" title="" coords="285,122,284,133,287,144,286,170,269,180,269,185,277,191,284,195,287,200,304,200,303,214,283,215,283,221,275,220,287,230,337,212,324,197,337,174,343,171,341,147" href="" target="" />
+                <area shape="poly" alt="C:U:Ivoorkust" title="U" coords="107,216,118,212,128,220,134,221,141,217,142,222,142,225,126,224,119,223,122,251,107,256,109,235,102,232,103,221,107,222" href="" target="" />
+                <area shape="poly" alt="B:V:Niger (Land)" title="V" coords="205,152,199,175,208,190,259,189,264,167,277,161,278,121" href="" target="" />
+                <area shape="rect" alt="A:W:Kenia" title="W" coords="435,268,475,293" href="" target="" />
+                <area shape="poly" alt="C:X:Oganda" title="" coords="401,267,398,285,391,290,402,287,404,279,416,280,417,290,424,289,430,276,423,267,418,261" href="" target="" />
+                <area shape="rect" alt="A:Y:Nigeria" title="Y" coords="223,198,256,233" href="" target="" />
+                <area shape="poly" alt="C:Z:Namibie" title="Z" coords="258,426,315,432,318,458,305,458,305,444,288,443,285,457,284,470,301,470,301,459,310,462,310,506,299,508,293,502,287,505,276,474,275,462" href="" target="" />
+
+
+                <area shape="rect" alt="A:I:Sahara" title="VII" coords="229,115,286,138" href="" target="null" />
+                <area shape="rect" alt="B:II:Kalahari" title="II" coords="329,453,354,468" href="" target="null" />
+                <area shape="rect" alt="B:III:Altlas gebergte" title="III" coords="132,35,158,52" href="" target="null" />
+            </map>
+
+            <div class="QuestionModule1">
+                <img alt="topografie kaart Afrika" class="QuestionModule canvas-area" data-image-url="/Images/topoAfrika.png" src="/Images/topoAfrika.png" style="min-width:100%;" usemap="#Afrika">
+            </div>
+        </td>
+        <td width="30px"></td>
+        <td>
+            <div id="QuestionModule" class="QuestionModule">
+                <div class="row taal">
+                    <label class="col-sm-4" for="cboLanguage">Taal:</label>
+                    <select class="col-sm-8" id="cboLanguage">
+                        <option value="af">Afrikaans</option>
+                        <option value="sq">Albanian</option>
+                        <option value="ar">Arabic</option>
+                        <option value="hy">Armenian</option>
+                        <option value="ca">Catalan</option>
+                        <option value="zh-CN">Mandarin (simplified)</option>
+                        <option value="zh-TW">Mandarin (traditional)</option>
+                        <option value="hr">Croatian</option>
+                        <option value="cs">Czech</option>
+                        <option value="da">Danish</option>
+                        <option value="nl">Dutch</option>
+                        <option value="en">English</option>
+                        <option value="eo">Esperanto</option>
+                        <option value="fi">Finnish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="el">Greek</option>
+                        <option value="ht">Haitian Creole</option>
+                        <option value="hi">Hindi</option>
+                        <option value="hu">Hungarian</option>
+                        <option value="is">Icelandic</option>
+                        <option value="id">Indonesian</option>
+                        <option value="it">Italian</option>
+                        <option value="ja">Japanese</option>
+                        <option value="ko">Korean</option>
+                        <option value="la">Latin</option>
+                        <option value="lv">Latvian</option>
+                        <option value="mk">Macedonian</option>
+                        <option value="no">Norwegian</option>
+                        <option value="pl">Polish</option>
+                        <option value="pt">Portuguese</option>
+                        <option value="ro">Romanian</option>
+                        <option value="ru">Russian</option>
+                        <option value="sr">Serbian</option>
+                        <option value="sk">Slovak</option>
+                        <option value="es">Spanish</option>
+                        <option value="sw">Swahili</option>
+                        <option value="sv">Swedish</option>
+                        <option value="ta">Tamil</option>
+                        <option value="th">Thai</option>
+                        <option value="tr">Turkish</option>
+                        <option value="vi">Vietnamese</option>
+                        <option value="cy">Welsh</option>
+                    </select>
+                </div>
+                <div class="row niveau">
+                    <label class="col-sm-4" for="cboNiveau">niveau:</label>
+                    <select class="col-sm-8" id="cboNiveau" name="level">
+                        <option id="NiveauA" value="A">Niveau A</option>
+                        <option id="NiveauB" value="B">Niveau B</option>
+                        <option id="NiveauAB" value="AB">Niveau A+B</option>
+                        <option id="NiveauC" value="C">Niveau C</option>
+                        <option id="NiveauAC" value="AC">Niveau A+C</option>
+                        <option id="NiveauBC" value="BC">Niveau B+C</option>
+                        <option id="NiveauABC" value="ABC">Niveau A+B+C</option>
+                    </select>
+
+                </div>
+                <div class="row aantalvragen" style="display:none">
+                    <div class="col-sm-4">Aantal vragen:</div>
+                    <input class="col-sm-2" name="aantalvragen" id="txtNumberOfQuestion" type="text" size="2" maxlength="2">
+                </div>
+                <div class="row ResponseOptions">
+                    <div class="col-sm-4">
+                        Hoe wil je oefenen?
+                    </div>
+                    <div class="col-sm-8" id="radAnswerType">
+                        <input name="AnswerResponse" type="radio" value="Type">Plaats typen
+                        <input name="AnswerResponse" type="radio" value="Click">Plaats aanwijzen
+                    </div>
+                    <div class="row ResponseOptions">
+                        <form name="fspelcontrol">
+                            <div id="fspelcontrolForm"></div>
+                        </form>
+                    </div>
+                </div>
+                <div>
+                    <div id="ClickQuestion" class="row AanwijsVraag">
+                        <div class="col-sm-4 ">Plaatsnaam:</div><div class="col-sm-8 " id="txtQuestion">a</div>
+                    </div>
+                </div>
+                <div id="TypeQuestion" class="row typeVraag">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-4">wat is <b>E</b>:</div>
+                            <input class="col-sm-7" name="txtAnswer" id="txtAnswer" type="text">
+                            <select class="" onchange="addSpecialChar(this.form)" id="setSpecChar" name="setSpecChar" title="Voeg een samengestelde letter toe aan je ingevoerde antwoord"><option value="à" title="à">à</option><option value="á" title="á">á</option><option value="â" title="â">â</option><option value="ã" title="ã">ã</option><option value="ä" title="ä">ä</option><option value="å" title="å">å</option><option value="æ" title="æ">æ</option><option value="À" title="À">À</option><option value="Á" title="Á">Á</option><option value="Â" title="Â">Â</option><option value="Ã" title="Ã">Ã</option><option value="Ä" title="Ä">Ä</option><option value="Å" title="Å">Å</option><option value="Æ" title="Æ">Æ</option><option value="ß" title="ß">ß</option><option value="ç" title="ç">ç</option><option value="Ç " title="Ç ">Ç </option><option value="è" title="è">è</option><option value="é" title="é">é</option><option value="ê" title="ê">ê</option><option value="ë" title="ë">ë</option><option value="È" title="È">È</option><option value="É" title="É">É</option><option value="Ê" title="Ê">Ê</option><option value="Ë" title="Ë">Ë</option><option value="ì" title="ì">ì</option><option value="í" title="í">í</option><option value="î" title="î">î</option><option value="ï" title="ï">ï</option><option value="Ì" title="Ì">Ì</option><option value="Í" title="Í">Í</option><option value="Î" title="Î">Î</option><option value="Ï" title="Ï">Ï</option><option value="ñ" title="ñ">ñ</option><option value="Ñ" title="Ñ">Ñ</option><option value="ò" title="ò">ò</option><option value="ó" title="ó">ó</option><option value="ô" title="ô">ô</option><option value="õ" title="õ">õ</option><option value="ö" title="ö">ö</option><option value="ø" title="ø">ø</option><option value="Ò" title="Ò">Ò</option><option value="Ó" title="Ó">Ó</option><option value="Ô" title="Ô">Ô</option><option value="Õ" title="Õ">Õ</option><option value="Ö" title="Ö">Ö</option><option value="Ø" title="Ø">Ø</option><option value="ù" title="ù">ù</option><option value="ú" title="ú">ú</option><option value="û" title="û">û</option><option value="ü" title="ü">ü</option><option value="Ù" title="Ù">Ù</option><option value="Ú" title="Ú">Ú</option><option value="Û" title="Û">Û</option><option value="Ü" title="Ü">Ü</option><option value="ý" title="ý">ý</option><option value="ÿ" title="ÿ">ÿ</option><option value="Ý" title="Ý">Ý</option></select>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-8">
+                                <button class="btn btn-primary btn-large" id="SubmitTypeQuestion">Controleer antwoord</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form name="naamraden" id="naamraden"></form>
+
+                <div class="row Gedaan">
+                    <div class="col-sm-4 ">Vraag:</div><div class="col-sm-8 " id="txtQuestionNumber">a</div>
+                </div>
+                <div class="row Score">
+                    <div class="col-sm-4 ">Aantal&nbsp;punten:</div><div class="col-sm-8 " id="txtScore">a</div>
+                </div>
+                <div class="row Buttons">
+                    <center>
+                        <button class="btn btn-primary btn-large" id="btnNextQuestion">Volgende</button>
+                        <button class="btn btn-primary btn-large" id="btnRestart">Opnieuw</button>
+                        <button class="btn btn-primary btn-large" id="btnEnd">Stoppen</button>
+                        <button class="btn btn-primary btn-large" id="btnAanpassen" title="Eigen keuze">aanpassen</button>
+                    </center>
+                </div>
+            </div>
+            <div class="resultAndEditModule" style="display:none;">
+                <div id="result">
+                </div>
+                <div class="row Buttons">
+                    <center>
+                        <button class="btn btn-primary btn-large" id="btnEditNextQuestion">Volgende</button>
+                        <button class="btn btn-primary btn-large" id="btnEditRestart">Opnieuw</button>
+                        <button class="btn btn-primary btn-large" id="btnEditAanpassen" title="Eigen keuze">aanpassen</button>
+                    </center>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
