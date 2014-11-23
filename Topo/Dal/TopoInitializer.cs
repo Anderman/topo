@@ -9,9 +9,9 @@ using Topo.Models;
 
 namespace Topo.Dal
 {
-    public class TopoInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<TopoContext>
+    public class TopoInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<ApplicationDbContext>
     {
-        protected override void Seed(TopoContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
             MemoryStream m = new MemoryStream();
             Assembly.GetExecutingAssembly().GetManifestResourceStream("Topo.Images.topoAfrika.png").CopyTo(m);

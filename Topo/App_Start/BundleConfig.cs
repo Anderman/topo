@@ -28,7 +28,8 @@ namespace Topo
             var jqueryBundle = new CustomScriptBundle("~/bundles/jquery");
             jqueryBundle.Include("~/Scripts/jquery-{version}.js");
             jqueryBundle.Include("~/Scripts/jquery.cookie.js");
-            //jqueryBundle.Include("~/Scripts/jquery.canvasAreaDraw.js");
+            jqueryBundle.Include("~/Scripts/CookieObject.js");
+            jqueryBundle.Include("~/Scripts/Players.js");
             jqueryBundle.Transforms.Add(jsTransformer);
             jqueryBundle.Orderer = nullOrderer;
             bundles.Add(jqueryBundle);

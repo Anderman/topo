@@ -1,11 +1,45 @@
-﻿@{
+﻿@model Topo.ViewModel.Players
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    <h1>Trubo Topo</h1>
+    <p class="lead">The turbo topo site kan je helpen met het leren van je topo</p>
+    <form class="form-inline" role="form" method="post">
+        <div class="form-group">
+            @if (Model.Current.Any())
+            {
+                <audio autoplay="autoplay" lang="nl-be" src="/TTS/index?tl=nl-be&q=Hoi @Model.Current,"></audio>
+            }
+            @if (Model.Namen != null && Model.Namen.Any())
+            {
+                <p class="">Klik op je naam of voeg een nieuwe naam toe</p>
+                <div class="btn-group">
+                    @foreach (KeyValuePair<string, string> name in Model.Namen.Where(i=>i.Key.Length>2))
+                    {
+                        <button type="submit" name="player" class="btn btn-primary" value="@name.Key">@name.Key</button>
+                    }
+                </div>
+                <div class="row"><p></p></div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="input-group form-group">
+                            <input type="text" class="form-control" name="newplayer" placeholder="nieuwe naam">
+                        </div>
+                    </div>
+                    <button type="submit" name="StartNewPlayer" value="StartNewPlayer" class="btn btn-primary">Voeg toe</button>
+                </div>
+            }
+            else
+            {
+                <div class="input-group">
+                    <input type="text" class="form-control" name="newplayer" placeholder="Wat is je naam?">
+                </div>
+                <button type="submit" name="StartNewPlayer" value="StartNewPlayer" class="btn btn-primary">Start</button>
+            }
+        </div>
+    </form>
 </div>
 
 <div class="row">

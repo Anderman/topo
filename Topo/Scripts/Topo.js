@@ -6,7 +6,15 @@ $(function () {
 
 function Topo() {
     var _topo = this;
-    this.blabla = '';
+
+    this.getPlayers = function () {
+        var cookie = $.cookie("players");
+        var players = cookie ? JSON.parse($.cookie("players")) : {};
+        return players;
+    };
+    this.setPlayers = function (players) {
+        $.cookie("players", JSON.stringify(players), { expires: 365 });
+    };
 
     this.getOwnSelection = function () {
         var cookie = $.cookie("Kaart" + KaartID);
@@ -93,14 +101,14 @@ function Topo() {
         this.setQuestion = function (value) {
             _this.question = value;
             $('#txtQuestion').html(value);
-            var audio = new Audio('/TTS/index?q=' + value + '&tl=' + _this.language);
+            var audio = new Audio('/TTS/index?q=' + value + '&tl=' + _this.languagePlaats);
             audio.play();
 
         }
         this.setQuestionNumber = function () {
             var x = 0;
             $("#map area").each(function () {
-                if (this.alt && this.alt.split(':').length == 3 && (this.attributes['status'] === true || this.attributes['status'] === false) || this.attributes['current']) {
+                if (this.alt && this.alt.split(':').length >= 3 && (this.attributes['status'] === true || this.attributes['status'] === false) || this.attributes['current']) {
                     x++;
                 }
             });
@@ -135,8 +143,9 @@ function Topo() {
             console.debug('random=' + nextQuestionNumber + ' done=' + done + ' max=' + max);
             var x = 0;
             $("#map area").each(function (index) {
-                if (_this.isSelected(_this.niveau, this.alt, _topo.getOwnSelection()) && !this.attributes['done'] ) {
+                if (_this.isSelected(_this.niveau, this.alt, _topo.getOwnSelection()) && !this.attributes['done']) {
                     if (x == nextQuestionNumber) {
+                        _this.languagePlaats = this.alt.split(':').length > 3 ? this.alt.split(':')[3] : _this.language;
                         _this.setQuestion(this.alt.split(':')[2]);
                         this.attributes['current'] = true;
                         _this.CurrentIndex = index;
@@ -238,8 +247,11 @@ function Topo() {
         $('#btnOefenen').click(function (e) {
             _topo.showModule('QuestionModule');
         });
+        $('#btnResultOefenen').click(function (e) {
+            _topo.showModule('QuestionModule');
+        });
         $('area').click(function (e) {
-            if (this.alt && this.alt.split(':').length == 3)
+            if (this.alt && this.alt.split(':').length >= 3)
                 _this.validate(this.alt.split(':')[2]);
             return false;
         });
@@ -252,7 +264,7 @@ function Topo() {
             var rows = [];
             var selected = _topo.getOwnSelection();
             $("#map area").each(function () {
-                if (this.alt && this.alt.split(':').length == 3) {
+                if (this.alt && this.alt.split(':').length >= 3) {
                     var niveau = this.alt.split(':')[0];
                     var label = this.alt.split(':')[1];
                     var naam = this.alt.split(':')[2];
@@ -284,7 +296,7 @@ function Topo() {
             var rows = [];
             $("#map area").each(function () {
                 var status = this.attributes['status'];
-                if (this.alt && this.alt.split(':').length == 3 && (status === true || status === false)) {
+                if (this.alt && this.alt.split(':').length >= 3 && (status === true || status === false)) {
                     var naam = this.alt.split(':')[2];
                     var row = ["<div class='row hover'><div class='col-sm-12 ", status, "'areaIndex='", index, "'>", naam, "</div></div>"].join('');
                     rows[x++] = row;
@@ -301,17 +313,20 @@ function Topo() {
 
         this.createEditableTable = function () {
             var x = 0;
+            var _this = this;
             var index = 0;
             var rows = [];
             var SelectedIndex = 0;
             $("#map area").each(function () {
-                if (this.alt && this.alt.split(':').length == 3) {
+                if (this.alt && this.alt.split(':').length >= 3) {
                     var niveau = this.alt.split(':')[0];
                     var label = this.alt.split(':')[1];
                     var naam = this.alt.split(':')[2];
+                    var lang = (this.alt.split(':').length > 3) ? this.alt.split(':')[3] : "";
                     var row = ["<div class='row hover' areaIndex='", index, "'>"
                             + "<input class='col-sm-1' type=text field='niveau' value='", niveau, "'>"
                             + "<input class='col-sm-1' type=text field='label' value='", label, "'>"
+                            + "<input class='col-sm-2' type=text field='lang' value=\"", lang, "\">"
                             + "<input class='col-sm-10' type=text field='naam' value=\"", naam, "\">"
                             + "</div>"].join('');
                     rows[x++] = row;
@@ -332,8 +347,9 @@ function Topo() {
                 var index = $(row)[0].attributes['areaIndex'].value;
                 var niveau = row.children()[0].value;
                 var label = row.children()[1].value;
-                var plaats = row.children()[2].value;
-                $('area')[index].attributes['alt'].value = niveau + ':' + label + ':' + plaats;
+                var lang = row.children()[2].value;
+                var plaats = row.children()[3].value;
+                $('area')[index].attributes['alt'].value = niveau + ':' + label + ':' + plaats + ':' + lang;
                 $('area')[index].attributes['title'] = label;
             });
             $('#btnSave').click(function (e) {
@@ -349,12 +365,20 @@ function Topo() {
                     }
                 });
             });
+            $('#btnNew').click(function (e) {
+                var newIndex = $("#map area").length;
+                $("#map").append("<area shape='rect' alt='C:" + newIndex + ":" + newIndex + "' title='" + newIndex + "' coords='' href=''/>")
+                _this.createEditableTable();
+            });
 
         }
         //Binding
     }
+
+
     this.ResultModule = new ResultModule();
     this.SelectionModule = new SelectionModule();
     this.EditModule = new EditModule();
     this.question = new Question();
+
 }

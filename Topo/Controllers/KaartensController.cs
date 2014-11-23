@@ -13,7 +13,7 @@ namespace Topo.Controllers
 {
     public class KaartensController : Controller
     {
-        private TopoContext db = new TopoContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Kaartens
         public ActionResult Index()

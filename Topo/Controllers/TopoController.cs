@@ -15,7 +15,7 @@ namespace Topo.Controllers
     public class TopoController : Controller
     {
 
-        private TopoContext db = new TopoContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Menu
         public ActionResult Menu()
         {
