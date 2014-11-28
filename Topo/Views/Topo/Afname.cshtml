@@ -9,7 +9,7 @@
             <td width="10%" id="ImageCell" style="vertical-align:top">
                 @Html.Raw(Model.Map)
                 <div class="FixedImage">
-                    <img alt="@Model.Title" style="position:absolute" class="QuestionModule canvas-area" data-image-url="/Topo/GetImage?KaartID=@Model.KaartID" usemap="#map">
+                    <img alt="@Model.Title" style="position:absolute" class="QuestionModule canvas-area" src="~/Images/Transparent.gif" data-image-url="/Topo/GetImage?KaartID=@Model.KaartID" usemap="#map">
                 </div>
             </td>
             <td width="30px" height="500px"></td>
@@ -136,7 +136,7 @@
                     </div>
                     <div class="row Buttons">
                         <center>
-                            <button class="btn btn-primary btn-large" id="btnResultOefenen">Terug</button>
+                            <button class="btn btn-primary btn-large" id="btnResultTerug">Terug</button>
                         </center>
                     </div>
                 </div>

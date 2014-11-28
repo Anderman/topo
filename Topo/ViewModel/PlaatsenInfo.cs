@@ -15,6 +15,7 @@ namespace Topo.ViewModel
         public string Label { get; set; }
         public string Plaats { get; set; }
         public string Coords { get; set; }
+        public string Shape { get; set; }
         public string Language { get; set; }
     }
     public class PlaatsenInfo
@@ -63,10 +64,29 @@ namespace Topo.ViewModel
                     string Plaats = plaatsen[Label].Plaats;
                     string Niveau = plaatsen[Label].Niveau;
                     if (!ViewMap.ContainsKey(Label))
-                        ViewMap.Add(Label, new PlaatsInfo { Niveau = Niveau, Coords = Coords, Label = Label, Plaats = Plaats });
+                        ViewMap.Add(Label, new PlaatsInfo { Niveau = Niveau, Coords = Coords, Shape = Shape, Label = Label, Plaats = Plaats });
                 }
             }
             return ViewMap;
+        }
+        public static string fixShape(string Html)
+        {
+            HtmlDocument Doc = new HtmlDocument();
+            Doc.LoadHtml(Html);
+            HtmlNodeCollection nodeList = Doc.DocumentNode.SelectNodes("//area");
+            Dictionary<string, PlaatsInfo> ViewMap = new Dictionary<string, PlaatsInfo>();
+            foreach (HtmlNode no in nodeList)
+            {
+                string Coords = no.Attributes["coords"].Value;
+                if(Coords.Any())
+                switch(Coords.Split(',').Length)
+                {
+                    case 3:no.Attributes.Add("shape","circle");break;
+                    case 4: no.Attributes.Add("shape","rect"); break;
+                    default: no.Attributes.Add("shape","poly"); break;
+                }
+            }
+            return Doc.DocumentNode.OuterHtml;
         }
         private static Dictionary<string, PlaatsInfo> getPlaatsen(string html)
         {

@@ -285,6 +285,7 @@
     <Content Include="Images\smiley-ok.gif" />
     <EmbeddedResource Include="Images\topoAfrika.png" />
     <EmbeddedResource Include="Images\TopoAfrikaMap.html" />
+    <Content Include="Images\Transparent.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
