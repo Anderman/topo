@@ -8,7 +8,7 @@ using System.Web.Script.Serialization;
 using Topo.ViewModel;
 namespace Topo.Controllers
 {
-    [RequireHttps]
+    //[RequireHttps]
     public class HomeController : Controller
     {
         [HttpGet]

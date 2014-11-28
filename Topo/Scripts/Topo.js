@@ -128,6 +128,16 @@ topo.Question = function () {
         });
         $("#txtQuestionNumber").html((x) + ' (van ' + this.getMaxQuestionNumber() + ')');
     }
+    this.fixShapeAtrrubute = function () {
+        $("#map area").each(function () {
+            switch(this.coords.split(',').length)
+            {
+                case 3: this.shape = 'circle'; break;
+                case 4: this.shape= 'rect'; break;
+                default: this.shape= 'poly'; break;
+            }
+        });
+    }
 
     //Get Values
     this.getCorrectAnswer = function () {
@@ -154,7 +164,7 @@ topo.Question = function () {
         var max = this.getMaxQuestionNumber();
         var done = this.numberOfQuestionDone;
         var nextQuestionNumber = Math.floor(Math.random() * (max - done));
-        console.debug('random=' + nextQuestionNumber + ' done=' + done + ' max=' + max);
+        //console.debug('random=' + nextQuestionNumber + ' done=' + done + ' max=' + max);
         var x = 0;
         $("#map area").each(function (index) {
             if (_this.isSelected(topo.Kaart.Niveau, this.alt, topo.Kaart.Selected) && !this.attributes['done']) {
@@ -263,7 +273,7 @@ topo.Question = function () {
         return false;
 
     });
-
+    //this.fixShapeAtrrubute();
     this.resetScoreAndMap();
 };
 topo.ResultModule = function () {

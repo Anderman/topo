@@ -49,9 +49,10 @@ namespace Topo.Controllers
         public ActionResult Afname(int KaartID)
         {
             ViewKaarten Kaart = (from t in db.Kaarten where t.KaartID == KaartID select new ViewKaarten { KaartID = KaartID, Map = t.Map, Title = t.Title, Language = t.Language }).FirstOrDefault();
-
+            Kaart.Map=PlaatsenInfo.fixShape(Kaart.Map);
             return View(Kaart);
         }
+
         public ActionResult GetImage(int KaartID)
         {
             byte[] img = (from t in db.Kaarten where t.KaartID == KaartID select t.Image).FirstOrDefault();
