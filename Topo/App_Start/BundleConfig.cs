@@ -19,7 +19,7 @@ namespace Topo
             var nullOrderer = new NullOrderer();
 
             var cssBundle = new CustomStyleBundle("~/bundles/css");
-            cssBundle.Include("~/Content/Site.less", "~/Content/bootstrap/bootstrap.less","~/Content/topo.css");
+            cssBundle.Include("~/Content/Site.less", "~/Content/bootstrap/bootstrap.less", "~/Content/topo.css", "~/Content/chosen.css");
             
             cssBundle.Transforms.Add(cssTransformer);
             cssBundle.Orderer = nullOrderer;
@@ -28,13 +28,14 @@ namespace Topo
             var jqueryBundle = new CustomScriptBundle("~/bundles/jquery");
             jqueryBundle.Include("~/Scripts/jquery-{version}.js");
             jqueryBundle.Include("~/Scripts/jquery.cookie.js");
+            jqueryBundle.Include("~/Scripts/chosen.jquery.js");
             jqueryBundle.Include("~/Scripts/CookieObject.js");
             jqueryBundle.Include("~/Scripts/Players.js");
             jqueryBundle.Transforms.Add(jsTransformer);
             jqueryBundle.Orderer = nullOrderer;
             bundles.Add(jqueryBundle);
 
-            jqueryBundle.Include("~/Scripts/jquery.cookie.js");
+            //jqueryBundle.Include("~/Scripts/jquery.cookie.js");
             //jqueryBundle.Transforms.Add(jsTransformer);
             //jqueryBundle.Orderer = nullOrderer;
             //bundles.Add(jqueryBundle);

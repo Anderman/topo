@@ -59,14 +59,14 @@
         }
 
         var points = [], activePoint, settings;
-        var $reset, $canvas, ctx, image;
-        var draw, mousedown, stopdrag, move, resize, reset, rightclick;
+        var  $canvas, ctx, image;
+        var draw, mousedown, stopdrag, move, resize,  rightclick;
 
         settings = $.extend({
             imageUrl: $(this).attr('data-image-url')
         }, options);
 
-        $reset = $('<button type="button" class="btn"><i class="icon-trash"></i>Clear</button>');
+        //$reset = $('<button type="button" class="btn"><i class="icon-trash"></i>Clear</button>');
         $canvas = $('<canvas>');
         ctx = $canvas[0].getContext('2d');
 
@@ -74,6 +74,7 @@
         resize = function () {
             $canvas.attr('height', image.height).attr('width', image.width);
             $(input).attr('height', image.height).attr('width', image.width);
+            $('#ImageCell').attr('width', image.width);
             draw();
         };
         $(image).load(resize);
@@ -82,17 +83,13 @@
         $canvas.css({ background: 'url(' + image.src + ')' });
 
         $(document).ready(function () {
-            $(input).after($canvas, $reset);//$('<div class="EditUseMap" style="display:none;"').prepend(>
-            $reset.click(reset);
+            $(input).after($canvas);//$('<div class="EditUseMap" style="display:none;"').prepend(>
+            
             $canvas.on('mousedown', mousedown);
             $canvas.on('contextmenu', rightclick);
             $canvas.on('mouseup', stopdrag);
         });
 
-        reset = function () {
-            points = [];
-            draw();
-        };
 
         move = function (e) {
             if (PreventChange) return;

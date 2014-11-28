@@ -7,24 +7,16 @@ using System.Web.Script.Serialization;
 
 namespace Topo.ViewModel
 {
-    public class PlayerNames : Dictionary<string, string>
+    public class PlayerKaarten : Dictionary<string, PlayerKaart> { }
+    public class Game
     {
-        public void Add(string key, string value)
+        public string CurrentPlayerName { get; set; }
+        public Players Players { get; set; }
+        public Game()
         {
-            if (key.Any() && key.Trim().Any() && !this.ContainsKey(key))
-                base.Add(key, value);
-            if (this.ContainsKey(key) && value.Any() )
-                this[key] = value;
+            Players = new Players();
         }
-    }
-    public class Players
-    {
-        public string Current { get; set; }
-        public PlayerNames Namen { get; set; }
-        public Players()
-        {
-            Namen = new PlayerNames();
-        }
+
         public HttpCookie toCookiePlayers()
         {
             string JsonPlayers = new JavaScriptSerializer().Serialize(this);
@@ -34,10 +26,35 @@ namespace Topo.ViewModel
             };
             return cookie;
         }
-        public static Players importCookie(HttpCookie Cookie)
+        
+        public static Game importCookie(HttpCookie Cookie)
         {
-            return Cookie != null ? JsonConvert.DeserializeObject<Players>(Cookie.Value) : new Players();
+            return Cookie != null ? JsonConvert.DeserializeObject<Game>(Cookie.Value) : new Game();
         }
 
     }
+    public class Players : Dictionary<string, Player>
+    {
+        public void Add(string key, Player value)
+        {
+            if (key.Any() && key.Trim().Any() && !this.ContainsKey(key))
+                base.Add(key, value);
+            if (this.ContainsKey(key) && value != null) //update Player (can't clear)
+                this[key] = value;
+        }
+    }
+    public class Player
+    {
+        public PlayerKaarten Kaarten;
+        public string CurrentKaartID;
+    }
+    public class PlayerKaart
+    {
+        public string Language;
+        public string Niveau;
+        public Dictionary<string, bool> Selected { get; set; }
+        public Dictionary<string, int> GoodAnswers { get; set; }
+        public Dictionary<string, int> WrongAnswers { get; set; }
+    }
+
 }

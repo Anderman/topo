@@ -1,10 +1,20 @@
 ﻿#ResultTable div.true {
-    background: url('/images/smiley-ok.gif') no-repeat right;
+    background: url('/images/smiley-ok.gif') no-repeat center;
 }
+
 #ResultTable div.false {
-    background: url('/images/smiley-nok.gif') no-repeat right;
+    background: url('/images/smiley-nok.gif') no-repeat center;
 }
-#EditableTable input{
-    border:0px;
-    padding:0px;
+
+#EditableTable input {
+    border: 0px;
+    padding: 0px;
+}
+
+.hover:hover div,.hover:hover input {
+    background-color: lightgray;
+}
+
+input:focus {
+    background-color: lightyellow;
 }

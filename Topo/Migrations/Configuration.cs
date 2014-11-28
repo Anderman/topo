@@ -1,9 +1,13 @@
 namespace Topo.Migrations
 {
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.IO;
     using System.Linq;
+    using System.Reflection;
+    using Topo.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Topo.Models.ApplicationDbContext>
     {
@@ -12,20 +16,24 @@ namespace Topo.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Topo.Models.ApplicationDbContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            MemoryStream m = new MemoryStream();
+            Assembly.GetExecutingAssembly().GetManifestResourceStream("Topo.Images.topoAfrika.png").CopyTo(m);
+            byte[] AfrikaImage = m.ToArray();
+            string AfrikaMap = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("Topo.Images.TopoAfrikaMap.html")).ReadToEnd();
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            var Kaarten = new List<Kaarten>
+            {
+                new Kaarten{
+                    Categorie=Categorieen.Wereld, 
+                    Title="Afrika", 
+                    Image=AfrikaImage, 
+                    Map=AfrikaMap
+                }
+            };
+            Kaarten.ForEach(s => context.Kaarten.AddOrUpdate(k => k.Title, s));
+            context.SaveChanges();
         }
     }
 }

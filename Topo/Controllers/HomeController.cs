@@ -14,19 +14,59 @@ namespace Topo.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            Players Players = Players.importCookie(Request.Cookies["players"]);
+            Game Players = Game.importCookie(Request.Cookies["players"]);
             return View(Players);
         }
         [HttpPost]
         public ActionResult Index(string player, string newplayer, string StartNewPlayer)
         {
-            Players Players = Players.importCookie(Request.Cookies["players"]);
+            Game Players = Game.importCookie(Request.Cookies["players"]);
             if (newplayer != null)
-                Players.Namen.Add(newplayer, "");
+            {
+                //PlayerKaartItem PlayerKaartItem = new PlayerKaartItem
+                //{
+                //    Selected = new Dictionary<string, bool>{
+                //        {"A",true},
+                //        {"B",false}
+                //    },
+                //    GoodAnswers = new Dictionary<string, int>{
+                //        {"A",0},
+                //        {"B",1}
+                //    },
+                //    WrongAnswers = new Dictionary<string, int>{
+                //        {"A",1},
+                //        {"B",0}
+                //    },
+                //};
+                Player PlayerInfo = new Player
+                {
+                    CurrentKaartID = "1",
+                    Kaarten = new PlayerKaarten{
+                        {"1",new PlayerKaart
+                            {
+                                Niveau = "D",
+                                Selected = new Dictionary<string, bool>{
+                                    {"A",true},
+                                    {"B",false}
+                                },
+                                GoodAnswers = new Dictionary<string, int>{
+                                    {"A",0},
+                                    {"B",1}
+                                },
+                                WrongAnswers = new Dictionary<string, int>{
+                                    {"A",1},
+                                    {"B",0}
+                                },
+                            }
+                        }
+                    }
+                };
+                Players.Players.Add(newplayer, PlayerInfo);
+            }
             if (StartNewPlayer == "StartNewPlayer")
-                Players.Current = newplayer;
+                Players.CurrentPlayerName = newplayer;
             else
-                Players.Current = player;
+                Players.CurrentPlayerName = player;
             HttpContext.Response.Cookies.Add(Players.toCookiePlayers());
             return View(Players);
         }

@@ -16,10 +16,11 @@
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>44300</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -230,10 +231,13 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TopoController.cs" />
     <Compile Include="Controllers\TTSController.cs" />
-    <Compile Include="Dal\TopoContext.cs" />
     <Compile Include="Dal\TopoInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411231103547_InitialCreate.cs" />
+    <Compile Include="Migrations\201411231103547_InitialCreate.Designer.cs">
+      <DependentUpon>201411231103547_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -252,6 +256,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chosen-sprite.png" />
+    <Content Include="Content\chosen.css" />
+    <Content Include="Content\chosen.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Wrong.mp3" />
     <Content Include="Content\topo.css" />
@@ -261,20 +268,21 @@
     <Content Include="Global.asax" />
     <Content Include="Content\bootstrap\variables.less" />
     <Content Include="Content\bootstrap\navbar.less" />
+    <EmbeddedResource Include="Migrations\201411231103547_InitialCreate.resx">
+      <DependentUpon>201411231103547_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
     <Content Include="Content\Site.less" />
-    <Content Include="Images\Thumbs.db" />
-    <Content Include="ClassDiagram1.cd" />
     <Content Include="Images\ani_zwitserland.gif" />
     <Content Include="Images\bg-europa.gif" />
+    <Content Include="Images\bg.png" />
     <Content Include="Images\eu-zwitserland.png" />
     <Content Include="Images\ico_info.gif" />
     <Content Include="Images\smiley-lachend.gif" />
     <Content Include="Images\smiley-nok.gif" />
     <Content Include="Images\smiley-ok.gif" />
-    <Content Include="Images\topoAfrika - Copy.png" />
     <EmbeddedResource Include="Images\topoAfrika.png" />
     <EmbeddedResource Include="Images\TopoAfrikaMap.html" />
     <Content Include="Scripts\bootstrap.js" />
@@ -355,7 +363,10 @@
     <Content Include="Content\bootstrap\bootstrap.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
+    <None Include="Properties\PublishProfiles\turbotopo.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\chosen.jquery.js" />
+    <Content Include="Scripts\chosen.jquery.min.js" />
     <Content Include="Scripts\CookieObject.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
@@ -442,7 +453,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53130</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44300/</IISUrl>
+          <IISUrl>http://localhost:53130/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

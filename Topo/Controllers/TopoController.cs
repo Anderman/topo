@@ -30,7 +30,7 @@ namespace Topo.Controllers
         public ActionResult Afname(Kaarten Kaart)
         {
             db.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
-            if (Kaart != null)
+            if (Kaart != null && User.IsInRole("Administrators"))
             {
 
                 db.Kaarten.Attach(Kaart);
@@ -41,7 +41,7 @@ namespace Topo.Controllers
             }
             else
             {
-                return Json("An Error Has occoured");
+                return Json("Onvoldiende rechten");
             }
 
         }

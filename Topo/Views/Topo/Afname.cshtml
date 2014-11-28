@@ -6,18 +6,19 @@
 <div>
     <table width="100%">
         <tr>
-            <td width="10%" style="vertical-align:top">
+            <td width="10%" id="ImageCell" style="vertical-align:top">
                 @Html.Raw(Model.Map)
-                <div class="QuestionModule1">
+                <div class="FixedImage">
                     <img alt="@Model.Title" style="position:absolute" class="QuestionModule canvas-area" data-image-url="/Topo/GetImage?KaartID=@Model.KaartID" usemap="#map">
                 </div>
             </td>
             <td width="30px" height="500px"></td>
             <td>
+
                 <div class="QuestionModule">
                     <div class="row taal">
                         <label class="col-sm-4" for="cboLanguage">Taal:</label>
-                        <select class="col-sm-8" id="cboLanguage">
+                        <select class="col-sm-8  chosen-select" id="cboLanguage">
                             <option value="af">Afrikaans</option>
                             <option value="sq">Albanian</option>
                             <option value="ar">Arabic</option>
@@ -65,7 +66,7 @@
                     </div>
                     <div class="row niveau">
                         <label class="col-sm-4" for="cboNiveau">niveau:</label>
-                        <select class="col-sm-8" id="cboNiveau" name="level">
+                        <select class="col-sm-8 chosen-select" id="cboNiveau" name="level">
                             <option id="NiveauA" value="A">Niveau A</option>
                             <option id="NiveauB" value="B">Niveau B</option>
                             <option id="NiveauAB" value="AB">Niveau A+B</option>
@@ -103,7 +104,7 @@
                             <div class="row">
                                 <div class="col-sm-4">wat is <b>E</b>:</div>
                                 <input class="col-sm-7" name="txtAnswer" id="txtAnswer" type="text">
-                                <select class="" onchange="addSpecialChar(this.form)" id="setSpecChar" name="setSpecChar" title="Voeg een samengestelde letter toe aan je ingevoerde antwoord"><option value="à" title="à">à</option><option value="á" title="á">á</option><option value="â" title="â">â</option><option value="ã" title="ã">ã</option><option value="ä" title="ä">ä</option><option value="å" title="å">å</option><option value="æ" title="æ">æ</option><option value="À" title="À">À</option><option value="Á" title="Á">Á</option><option value="Â" title="Â">Â</option><option value="Ã" title="Ã">Ã</option><option value="Ä" title="Ä">Ä</option><option value="Å" title="Å">Å</option><option value="Æ" title="Æ">Æ</option><option value="ß" title="ß">ß</option><option value="ç" title="ç">ç</option><option value="Ç " title="Ç ">Ç </option><option value="è" title="è">è</option><option value="é" title="é">é</option><option value="ê" title="ê">ê</option><option value="ë" title="ë">ë</option><option value="È" title="È">È</option><option value="É" title="É">É</option><option value="Ê" title="Ê">Ê</option><option value="Ë" title="Ë">Ë</option><option value="ì" title="ì">ì</option><option value="í" title="í">í</option><option value="î" title="î">î</option><option value="ï" title="ï">ï</option><option value="Ì" title="Ì">Ì</option><option value="Í" title="Í">Í</option><option value="Î" title="Î">Î</option><option value="Ï" title="Ï">Ï</option><option value="ñ" title="ñ">ñ</option><option value="Ñ" title="Ñ">Ñ</option><option value="ò" title="ò">ò</option><option value="ó" title="ó">ó</option><option value="ô" title="ô">ô</option><option value="õ" title="õ">õ</option><option value="ö" title="ö">ö</option><option value="ø" title="ø">ø</option><option value="Ò" title="Ò">Ò</option><option value="Ó" title="Ó">Ó</option><option value="Ô" title="Ô">Ô</option><option value="Õ" title="Õ">Õ</option><option value="Ö" title="Ö">Ö</option><option value="Ø" title="Ø">Ø</option><option value="ù" title="ù">ù</option><option value="ú" title="ú">ú</option><option value="û" title="û">û</option><option value="ü" title="ü">ü</option><option value="Ù" title="Ù">Ù</option><option value="Ú" title="Ú">Ú</option><option value="Û" title="Û">Û</option><option value="Ü" title="Ü">Ü</option><option value="ý" title="ý">ý</option><option value="ÿ" title="ÿ">ÿ</option><option value="Ý" title="Ý">Ý</option></select>
+                                <select class="chosen-select" onchange="addSpecialChar(this.form)" id="setSpecChar" name="setSpecChar" title="Voeg een samengestelde letter toe aan je ingevoerde antwoord"><option value="à" title="à">à</option><option value="á" title="á">á</option><option value="â" title="â">â</option><option value="ã" title="ã">ã</option><option value="ä" title="ä">ä</option><option value="å" title="å">å</option><option value="æ" title="æ">æ</option><option value="À" title="À">À</option><option value="Á" title="Á">Á</option><option value="Â" title="Â">Â</option><option value="Ã" title="Ã">Ã</option><option value="Ä" title="Ä">Ä</option><option value="Å" title="Å">Å</option><option value="Æ" title="Æ">Æ</option><option value="ß" title="ß">ß</option><option value="ç" title="ç">ç</option><option value="Ç " title="Ç ">Ç </option><option value="è" title="è">è</option><option value="é" title="é">é</option><option value="ê" title="ê">ê</option><option value="ë" title="ë">ë</option><option value="È" title="È">È</option><option value="É" title="É">É</option><option value="Ê" title="Ê">Ê</option><option value="Ë" title="Ë">Ë</option><option value="ì" title="ì">ì</option><option value="í" title="í">í</option><option value="î" title="î">î</option><option value="ï" title="ï">ï</option><option value="Ì" title="Ì">Ì</option><option value="Í" title="Í">Í</option><option value="Î" title="Î">Î</option><option value="Ï" title="Ï">Ï</option><option value="ñ" title="ñ">ñ</option><option value="Ñ" title="Ñ">Ñ</option><option value="ò" title="ò">ò</option><option value="ó" title="ó">ó</option><option value="ô" title="ô">ô</option><option value="õ" title="õ">õ</option><option value="ö" title="ö">ö</option><option value="ø" title="ø">ø</option><option value="Ò" title="Ò">Ò</option><option value="Ó" title="Ó">Ó</option><option value="Ô" title="Ô">Ô</option><option value="Õ" title="Õ">Õ</option><option value="Ö" title="Ö">Ö</option><option value="Ø" title="Ø">Ø</option><option value="ù" title="ù">ù</option><option value="ú" title="ú">ú</option><option value="û" title="û">û</option><option value="ü" title="ü">ü</option><option value="Ù" title="Ù">Ù</option><option value="Ú" title="Ú">Ú</option><option value="Û" title="Û">Û</option><option value="Ü" title="Ü">Ü</option><option value="ý" title="ý">ý</option><option value="ÿ" title="ÿ">ÿ</option><option value="Ý" title="Ý">Ý</option></select>
                             </div>
                             <div class="row">
                                 <div class="col-sm-4"></div>
@@ -125,7 +126,6 @@
                         <center>
                             <button class="btn btn-primary btn-large" id="btnNextQuestion">Volgende</button>
                             <button class="btn btn-primary btn-large" id="btnRestart">Opnieuw</button>
-                            <button class="btn btn-primary btn-large" id="btnEnd">Stoppen</button>
                             <button class="btn btn-primary btn-large" id="btnOwnSelection" title="Eigen keuze aanpassen">Eigen keuze</button>
                             <button class="btn btn-primary btn-large" id="btnAanpassen" title="Aanpassen">Aanpassen</button>
                         </center>
@@ -136,9 +136,7 @@
                     </div>
                     <div class="row Buttons">
                         <center>
-                            <button class="btn btn-primary btn-large" id="btnEditNextQuestion">Volgende</button>
-                            <button class="btn btn-primary btn-large" id="btnResultOefenen">Opnieuw</button>
-                            <button class="btn btn-primary btn-large" id="btnEditAanpassen" title="Eigen keuze">aanpassen</button>
+                            <button class="btn btn-primary btn-large" id="btnResultOefenen">Terug</button>
                         </center>
                     </div>
                 </div>
@@ -146,13 +144,16 @@
                     <div id="EditableTable">
                     </div>
                     <div class="row Buttons btn-group">
-                            <button class="btn btn-primary btn-large" id="btnOefenen" title="Oefenen">Oefenen</button>
-                            <button class="btn btn-primary btn-large" id="btnNew" title="New">New</button>
-                            <button class="btn btn-primary btn-large" id="btnSave" title="Save">Save</button>
+                        <button class="btn btn-primary btn-large" id="btnEditTerug" title="Terug">Terug</button>
+                        <button class="btn btn-primary btn-large" id="btnNew" title="Nieuwe plaats">Nieuwe plaats</button>
+                        <button class="btn btn-primary btn-large" id="btnSave" title="Save">Save</button>
                     </div>
                 </div>
                 <div class="SelectionModule" style="display:none;">
                     <div id="SelectionTable">
+                    </div>
+                    <div class="row Buttons btn-group">
+                        <button class="btn btn-primary btn-large" id="btnSelectionTerug" title="Terug">Terug</button>
                     </div>
                 </div>
             </td>
@@ -160,19 +161,14 @@
     </table>
 </div>
 @section scripts{
-    @*<script src="~/Scripts/jquery.canvasAreaDraw.js"></script>*@
-    <script src="~/Scripts/Topo.js"></script>
+    @*
+        <script src="~/Scripts/jquery.canvasAreaDraw.js"></script>*@
     <script>
+        var LanguageID = '@Model.Language';
         var KaartID = @Model.KaartID;
     </script>
+    <script src="~/Scripts/Topo.js"></script>
     <style>
-        .hover:focus {
-            background-color: lightgray;
-        }
-
-        input:focus {
-            background-color: lightyellow;
-        }
     </style>
 }
 
