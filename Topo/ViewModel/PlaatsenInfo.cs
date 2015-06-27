@@ -78,13 +78,13 @@ namespace Topo.ViewModel
             foreach (HtmlNode no in nodeList)
             {
                 string Coords = no.Attributes["coords"].Value;
-                if(Coords.Any())
-                switch(Coords.Split(',').Length)
-                {
-                    case 3:no.Attributes.Add("shape","circle");break;
-                    case 4: no.Attributes.Add("shape","rect"); break;
-                    default: no.Attributes.Add("shape","poly"); break;
-                }
+                if (Coords.Any())
+                    switch (Coords.Split(',').Length)
+                    {
+                        case 3: no.Attributes.Add("shape", "circle"); break;
+                        case 4: no.Attributes.Add("shape", "rect"); break;
+                        default: no.Attributes.Add("shape", "poly"); break;
+                    }
             }
             return Doc.DocumentNode.OuterHtml;
         }

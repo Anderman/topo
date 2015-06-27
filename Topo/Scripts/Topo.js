@@ -406,18 +406,18 @@ topo.EditModule = function () {
         $('#EditableTable input').blur(function (e) {
             var row = $(this).parent().parent();
             var index = $(row)[0].attributes['areaIndex'].value;
-            var niveau = row.children()[1].value;
-            var label = row.children()[2].value;
-            var lang = row.children()[3].value;
-            var plaats = row.children()[4].value;
+            var niveau = row.children()[1].children[0].value;
+            var label = row.children()[2].children[0].value;
+            var lang = row.children()[3].children[0].value;
+            var plaats = row.children()[4].children[0].value;
             $('area')[index].attributes['alt'].value = niveau + ':' + label + ':' + plaats + ':' + lang;
             $('area')[index].attributes['title'] = label;
             $('.canvas-area[data-image-url]')[0].clean();
         });
         $('.glyphicon-volume-up').click(function () {
             var row = $(this).parent().parent();
-            var lang = row.children()[3].value;
-            var plaats = row.children()[4].value;
+            var lang = row.children()[3].children[0].value;
+            var plaats = row.children()[4].children[0].value;
             topo.SayPlaats(plaats, lang);
         });
         $('.glyphicon-remove').click(function () {

@@ -53,7 +53,9 @@
         input.SaveArea = function () {
             PreventChange = false;
             var newCoords = points.join(',');
-            if (typeof area != 'undefined' && area && area.coords != newCoords && window.confirm("Save coords?")) {
+            if (typeof area != 'undefined' && area && area.coords != newCoords
+                //&& window.confirm("Save coords?")
+                ) {
                 area.coords = newCoords;
             }
         }

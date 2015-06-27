@@ -30,7 +30,7 @@ namespace Topo.Models
         {
             return new ApplicationDbContext();
         }
-        public DbSet<Kaarten> Kaarten { get; set; }
+        public DbSet<TopoKaart> Kaarten { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

@@ -18,9 +18,9 @@ namespace Topo.Dal
             byte[] AfrikaImage = m.ToArray();
             string AfrikaMap = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("Topo.Images.TopoAfrikaMap.html")).ReadToEnd();
 
-            var Kaarten = new List<Kaarten>
+            var Kaarten = new List<TopoKaart>
             {
-                new Kaarten{Categorie=Categorieen.Wereld, Title="Afrika",Image=AfrikaImage,Map=AfrikaMap}
+                new TopoKaart{Categorie=Categorieen.Wereld, Title="Afrika",Image=AfrikaImage,Map=AfrikaMap}
             };
             Kaarten.ForEach(s => context.Kaarten.Add(s));
             context.SaveChanges();

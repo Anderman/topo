@@ -28,7 +28,7 @@ namespace Topo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kaarten kaarten = db.Kaarten.Find(id);
+            TopoKaart kaarten = db.Kaarten.Find(id);
             if (kaarten == null)
             {
                 return HttpNotFound();
@@ -47,7 +47,7 @@ namespace Topo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "KaartID,Title,Image,Map,Language")] Kaarten kaarten)
+        public ActionResult Create([Bind(Include = "KaartID,Title,Image,Map,Language")] TopoKaart kaarten)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace Topo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kaarten kaarten = db.Kaarten.Find(id);
+            TopoKaart kaarten = db.Kaarten.Find(id);
             if (kaarten == null)
             {
                 return HttpNotFound();
@@ -79,7 +79,7 @@ namespace Topo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "KaartID,Title,Image,Map,Language")] Kaarten kaarten)
+        public ActionResult Edit([Bind(Include = "KaartID,Title,Image,Map,Language")] TopoKaart kaarten)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace Topo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kaarten kaarten = db.Kaarten.Find(id);
+            TopoKaart kaarten = db.Kaarten.Find(id);
             if (kaarten == null)
             {
                 return HttpNotFound();
@@ -110,7 +110,7 @@ namespace Topo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Kaarten kaarten = db.Kaarten.Find(id);
+            TopoKaart kaarten = db.Kaarten.Find(id);
             db.Kaarten.Remove(kaarten);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Topo.Models
+namespace WebApplication1.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

@@ -27,7 +27,7 @@ namespace Topo.Controllers
             return View(db.Kaarten.ToList());
         }
         [HttpPost]
-        public ActionResult Afname(Kaarten Kaart)
+        public ActionResult Afname(TopoKaart Kaart)
         {
             db.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
             if (Kaart != null && User.IsInRole("Administrators"))
@@ -61,7 +61,7 @@ namespace Topo.Controllers
         [Authorize]
         public ActionResult Import()
         {
-            return View(new Kaarten());
+            return View(new TopoKaart());
         }
         [HttpPost]
         [Authorize]
@@ -69,7 +69,7 @@ namespace Topo.Controllers
         {
             if (URL.ToString() != "")
             {
-                db.Kaarten.Add(Kaarten.Import(URL, Categorie));
+                db.Kaarten.Add(TopoKaart.Import(URL, Categorie));
                 db.SaveChanges();
             }
             return View();

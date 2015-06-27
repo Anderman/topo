@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topo", "Topo\Topo.csproj", "{2835FDBA-96BA-4D5C-850D-A909BB12F4E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topo.Tests", "Topo.Tests\Topo.Tests.csproj", "{8486B6C5-2E01-4B80-8A9D-8D0F50E75EF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{FE9AFC88-1ED5-496D-812E-B5735CAF31B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{2835FDBA-96BA-4D5C-850D-A909BB12F4E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2835FDBA-96BA-4D5C-850D-A909BB12F4E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2835FDBA-96BA-4D5C-850D-A909BB12F4E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8486B6C5-2E01-4B80-8A9D-8D0F50E75EF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8486B6C5-2E01-4B80-8A9D-8D0F50E75EF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8486B6C5-2E01-4B80-8A9D-8D0F50E75EF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8486B6C5-2E01-4B80-8A9D-8D0F50E75EF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE9AFC88-1ED5-496D-812E-B5735CAF31B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE9AFC88-1ED5-496D-812E-B5735CAF31B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE9AFC88-1ED5-496D-812E-B5735CAF31B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE9AFC88-1ED5-496D-812E-B5735CAF31B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

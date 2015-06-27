@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Topo.Models;
 
 namespace Topo
 {
@@ -13,6 +14,7 @@ namespace Topo
     {
         protected void Application_Start()
         {
+            //System.Data.Entity.Database.SetInitializer(new ApplicationDbContext()); 
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

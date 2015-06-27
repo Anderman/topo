@@ -61,8 +61,10 @@ namespace Topo
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
                 ClientId = "820008017627-nj7evr2ma1hrrl339i14uqrkgkkhifss.apps.googleusercontent.com",
-                ClientSecret = "R1_QlfiUxbod-NAyDoerKfdU"
+                ClientSecret = "R1_QlfiUxbod-NAyDoerKfdU",
+                
             });
+            
         }
     }
 }

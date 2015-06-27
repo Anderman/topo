@@ -12,7 +12,7 @@ namespace Topo.Models
     {
         Nederland, Europa, Wereld
     }
-    public class Kaarten
+    public class TopoKaart
     {
         [Key]
         public int KaartID { get; set; }
@@ -22,9 +22,9 @@ namespace Topo.Models
         public string Map { get; set; }
         public string Language { get; set; }
 
-        public static Kaarten Import(Uri URL, Categorieen Categorie)
+        public static TopoKaart Import(Uri URL, Categorieen Categorie)
         {
-            Kaarten Kaart = new Kaarten();
+            TopoKaart Kaart = new TopoKaart();
             Kaart.Categorie = Categorie;
 
             System.Net.WebClient wc = new System.Net.WebClient();
