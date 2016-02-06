@@ -21,6 +21,7 @@
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -277,6 +278,8 @@
     </None>
     <Content Include="Content\Site.less" />
     <Content Include="Images\ani_zwitserland.gif" />
+    <EmbeddedResource Include="Images\Azie.png" />
+    <EmbeddedResource Include="Images\AzieMap.html" />
     <Content Include="Images\bg-europa.gif" />
     <Content Include="Images\bg.png" />
     <Content Include="Images\eu-zwitserland.png" />
