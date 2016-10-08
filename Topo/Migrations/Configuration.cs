@@ -31,6 +31,10 @@ namespace Topo.Migrations
 
             byte[] Azie = GetResourceImage("Topo.Images.Azie.png");
             string AzieMap = GetResourceString("Topo.Images.AzieMap.html");
+
+            byte[] Wereld = GetResourceImage("Topo.Images.Wereld.png");
+            string WereldMap = GetResourceString("Topo.Images.WereldMap.html");
+
             var Kaarten = new List<TopoKaart>
             {
                 new TopoKaart{
@@ -56,6 +60,12 @@ namespace Topo.Migrations
                     Title="kaart Wereld - Azië (Noord-Azië, Centraal-Azië, Verre Oosten, Oost-Azië, Zuidoost-Azië, Zuid-Azië, Zuidwest-Azië)",
                     Image=Azie,
                     Map=AzieMap
+                },
+                new TopoKaart{
+                    Categorie=Categorieen.Wereld,
+                    Title="kaart Wereld - continenten werelddelen oceanen bergketens en steden)",
+                    Image=Wereld,
+                    Map=WereldMap
                 }
 
             };
