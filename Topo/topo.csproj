@@ -293,6 +293,8 @@
     <EmbeddedResource Include="Images\TopoAfrikaMap.html" />
     <Content Include="Images\Transparent.gif" />
     <EmbeddedResource Include="Images\ZuidwestAzie.png" />
+    <EmbeddedResource Include="Images\Wereld.png" />
+    <EmbeddedResource Include="Images\WereldMap.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
